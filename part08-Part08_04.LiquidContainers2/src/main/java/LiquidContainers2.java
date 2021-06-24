@@ -5,17 +5,10 @@ public class LiquidContainers2 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
-
-        while (true) {
-            System.out.print("> ");
-
-            String input = scan.nextLine();
-            if (input.equals("quit")) {
-                break;
-            }
-
-        }
+        Container cont1 = new Container();
+        Container cont2 = new Container();
+        UserInterface user = new UserInterface(cont1, cont2, scan);
+        user.start();
     }
 
 }
