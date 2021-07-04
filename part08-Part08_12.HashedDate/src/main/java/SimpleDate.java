@@ -1,4 +1,7 @@
 
+import java.util.HashMap;
+
+
 public class SimpleDate {
 
     private int day;
@@ -49,6 +52,14 @@ public class SimpleDate {
         }
 
         return this.year - other.year - yearRemoved;
+    }
+    
+    public int hashCode() {
+        int hash = 5;
+        hash = 17 * hash + this.day;
+        hash = 17 * hash + this.month;
+        hash = 17 * hash + this.year;
+        return hash;
     }
 
 }
