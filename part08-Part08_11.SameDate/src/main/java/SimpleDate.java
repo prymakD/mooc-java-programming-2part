@@ -3,6 +3,18 @@ public class SimpleDate {
 
     private int day;
     private int month;
+
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
     private int year;
 
     public SimpleDate(int day, int month, int year) {
@@ -49,6 +61,25 @@ public class SimpleDate {
         }
 
         return this.year - other.year - yearRemoved;
+    }
+    
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        
+        if (!(object instanceof SimpleDate)) {
+            return false;
+        }
+        
+        SimpleDate comparedDate = (SimpleDate) object;
+        
+        if (this.year == comparedDate.year &&
+            this.month == comparedDate.month &&
+            this.day == comparedDate.day) {
+            return true;
+        }
+        return false;
     }
 
 }
