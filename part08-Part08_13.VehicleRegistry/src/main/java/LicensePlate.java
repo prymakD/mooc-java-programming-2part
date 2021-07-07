@@ -13,6 +13,29 @@ public class LicensePlate {
         this.liNumber = liNumber;
         this.country = country;
     }
+    
+    public int hashCode() {
+        return this.country.hashCode();
+    }
+    
+    public boolean equals(Object comparedObject) {
+        if (this == comparedObject) {
+            return true;
+        }
+        
+        if (!(comparedObject instanceof LicensePlate)) {
+            return false;
+        }
+        
+        LicensePlate comparedLicensePlate = (LicensePlate) comparedObject;
+        
+        if (this.country.equals(comparedLicensePlate.country) &&
+            this.liNumber.equals(comparedLicensePlate.liNumber)) {
+            return true;
+        }
+        
+        return false;
+    }
 
     @Override
     public String toString() {
