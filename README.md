@@ -15,3 +15,4 @@ This java mooc course part 1 was really crucial in my understandig of core JAVA 
 ## IDE: [NeatBeans](https://netbeans.apache.org/) [TMC](https://tmc.mooc.fi/)
 
 ## Progress:
+<img src="Progress/part_8,9.png" width="450" height="500" />
