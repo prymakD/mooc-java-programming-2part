@@ -1,5 +1,6 @@
 package dictionary;
 
+import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -9,12 +10,16 @@ public class SaveableDictionary {
     private HashMap<String, String> dictionary;
     private String fileName;
 
+    public SaveableDictionary() {
+        dictionary = new HashMap<>();
+    }
+
     public SaveableDictionary(String file) {
         this.fileName = file;
         dictionary = new HashMap<>();
     }
 
-    public boolean load(){
+    public boolean load() {
         boolean success = true;
         try (Scanner fileReader = new Scanner(Paths.get(this.fileName))) {
             while (fileReader.hasNextLine()) {
@@ -27,12 +32,28 @@ public class SaveableDictionary {
             success = false;
         }
         return success;
-}
+    }
 
-public void add(String word, String translation) {
+    public boolean save() {
+        boolean success = true;
+        try (PrintWriter writer = new PrintWriter(this.fileName)) {
+            
+            for (String dictWord : dictionary.keySet()) {
+                writer.printf("%s:%s\n", dictWord, dictionary.get(dictWord));
+            }
+            
+            writer.close();
+        } catch (Exception e) {
+            success = false;
+        }
+
+        return success;
+    }
+
+    public void add(String word, String translation) {
         this.dictionary.putIfAbsent(word, translation);
     }
-    
+
     public String translate(String word) {
         for (String dictWord : dictionary.keySet()) {
             if (word.equals(dictWord)) {
@@ -43,7 +64,7 @@ public void add(String word, String translation) {
         }
         return null;
     }
-    
+
     public void delete(String word) {
         if (this.dictionary.containsKey(word)) {
             this.dictionary.remove(word);
@@ -51,5 +72,5 @@ public void add(String word, String translation) {
             this.dictionary.values().remove(word);
         }
     }
-    
+
 }

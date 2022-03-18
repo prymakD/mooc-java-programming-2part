@@ -5,14 +5,13 @@ public class Main {
     public static void main(String[] args) {
         // You can test your dictionary here
         SaveableDictionary dictionary = new SaveableDictionary("words.txt");
-        boolean wasSuccessful = dictionary.load();
+        dictionary.load();
+        dictionary.add("banaani", "banana");
 
-        if (wasSuccessful) {
-            System.out.println("Successfully loaded the dictionary from file");
-        }
-
+// use the dictionary
+        dictionary.save();
         System.out.println(dictionary.translate("apina"));
-        System.out.println(dictionary.translate("ohjelmointi"));
-        System.out.println(dictionary.translate("alla oleva"));
+        System.out.println(dictionary.translate("olut"));
+        System.out.println(dictionary.translate("banaani"));
     }
 }
