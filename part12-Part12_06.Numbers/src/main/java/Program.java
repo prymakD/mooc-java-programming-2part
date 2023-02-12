@@ -6,6 +6,15 @@ public class Program {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("How many random numbers should be printed?");
+        Random ladyLuck = new Random(); // create Random object ladyLuck
+        int number = scanner.nextInt();
+        if (number == 0) System.out.println(0);
+        for (int i = 0; i < number; i++) {
+            // Draw and print a random number
+            int randomNumber = ladyLuck.nextInt(11);
+            System.out.println(randomNumber);
+        }
     }
 
 }
