@@ -16,3 +16,6 @@ This java mooc course part 1 was really crucial in my understandig of core JAVA 
 
 ## Progress:
 <img src="Progress/part_8,9.png" width="450" height="500" />
+
+<img src="Progress/part_10.11.12.png" width="450" height="500" />
+
